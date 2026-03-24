@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Shower · Alondra</title>
+
+<!-- Fuentes y Font Awesome -->
+<link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- BURBUJAS -->
+<div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- NAVBAR DERECHA CON ICONOS -->
+<nav class="sidebar">
+  <ul>
+    <li data-section="hero" class="active"><i class="fa-solid fa-crown"></i></li>
+    <li data-section="invitacion"><i class="fas fa-envelope"></i></li>
+    <li data-section="cuando"><i class="fas fa-clock"></i></li>
+    <li data-section="donde"><i class="fas fa-map-marker-alt"></i></li>
+    <li data-section="regalos"><i class="fas fa-gift"></i></li>
+    <li data-section="aceptas"><i class="fas fa-check-circle"></i></li>
+  </ul>
+</nav>
+
+<!-- IMÁGENES DECORATIVAS PNG -->
+<img src="assets/banderines.png" alt="Banderines" class="decoracion banderines">
+<img src="assets/conejito.png" alt="Conejito" class="decoracion conejito">
+
+<!-- SECCIONES -->
+<main class="main-container">
+  <!-- HERO -->
+  <section id="hero" class="section">
+    <div class="contenido arriba-movil">
+      <h1 class="texto-grande ">Mara y Omar<br>esperan a una princesita</h1>
+      <p></p>
+      <p class="texto-chico">¡Acompañanos a festejar su llegada<br>en este día tan especial<strong>!</strong></p>
+    </div>
+  </section>
+
+  <!-- INVITACIÓN -->
+  <section id="invitacion" class="section">
+    <div class="contenido arriba-movil">
+      <h1 style="font-size:4rem;">Alondra</h1>
+      <h2 style="font-size:3rem;">Mi Baby Shower</h2>
+      <p id="countdown">Cargando countdown...</p>
+    </div>
+  </section>
+
+  <!-- CUÁNDO -->
+  <section id="cuando" class="section">
+    <div class="contenido arriba-movil">
+      <h2 style="font-size:2.5rem;">Te esperamos</h2>
+      <h1 style="font-size:3.5rem;">11 de abril 2026</h1>
+      <p><strong>1:30 PM</strong></p>
+    </div>
+  </section>
+
+
+  
+  <!-- DÓNDE -->
+  <section id="donde" class="section">
+    <div class="content">
+      <p></p>
+      <h1><strong>JARDÍN TERRAZAS LINDAVISTA</strong></h1>
+      <p>Cali 670, Lindavista, <br>Gustavo A. Madero, 07300 <br>Ciudad de México, CDMX</p>
+      <a href="https://maps.app.goo.gl/yQQbQYsj4W1w2F57A" target="_blank" class="btn-maps">Ver en Google Maps</a>
+    </div>
+  </section>
+
+  <!-- MESA DE REGALOS -->
+  <section id="regalos" class="section">
+    <div class="content">
+      <h1 style="font-size:4rem;">Mesa de regalos</h1>
+      <div class="gift-grid">
+        <p></p>
+      </div>
+      <div class="gift-grid">
+        <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51956932" target="_blank"><img src="https://gcp-na-images.contentstack.com/v3/assets/blt339516d00dd80f86/blt07b6231a0224df6f/686da1846414b29800a13955/Liverpool_opengraph.png?branch=prod" alt="Liverpool"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIRMAR ASISTENCIA -->
+  <section id="aceptas" class="section">
+    <div class="content">
+      <h1 style="font-size:3.5rem;">Confirma tu asistencia</h1>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      
+    <div style="display: flex; justify-content: center; margin-top: 50px;">
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <a href="https://wa.me/525526607331?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20al%20baby%20shower%2C%20no%20puedo%20esperar%20para%20celebrar%20a%20la%20beb%C3%A9%20%F0%9F%8E%89" target="_blank" class="whatsapp-btn">
+      <i class="fa-brands fa-whatsapp" style="color: white;"></i>
+      Mara Mercado
+    </a>
+
+    <a href="https://wa.me/525529043407?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20al%20baby%20shower%2C%20no%20puedo%20esperar%20para%20celebrar%20a%20la%20beb%C3%A9%20%F0%9F%8E%89" target="_blank" class="whatsapp-btn">
+      <i class="fa-brands fa-whatsapp" style="color: white;"></i>
+      Omar Valdés
+    </a>
+  </div>
+</div>
+  </div>
+  </section>
+</main>
+
+<!-- Música de fondo -->
+<audio id="bg-music" loop preload="auto">
+  <source src="audio/el-rey-león--karaoke.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5
+</audio>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

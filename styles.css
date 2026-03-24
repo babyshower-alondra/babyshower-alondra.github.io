@@ -1,0 +1,311 @@
+:root{
+  --ink:#E3AAAA;
+  --brand:#FF8FAB;
+  --gold: #D4AF37;
+  --transition-speed:0.8s;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+@font-face {
+  font-family: 'baby-shower';
+  src: url('assets/halmera/Halmera.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'baby-shower';
+  src: url('assets/halmera/Halmera.ttf') format('truetype');
+}
+
+
+body{
+  font-family:'baby-shower',sans-serif;
+  background: url('assets/fondo.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color:var(--ink);
+  overflow:hidden;
+}
+
+.main-container{
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+/* SECCIONES */
+.section{
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:absolute;
+  top:0; left:0;
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity var(--transition-speed), transform var(--transition-speed);
+  z-index:1;
+}
+.section.active{
+  opacity:1;
+  transform:translateY(0);
+  z-index:2;
+}
+
+.content {
+  text-align: center;
+  text-shadow: 6px 6px 7px rgba(255,255,255,1);
+
+  /*padding-left: 15px;      /* espacio desde el borde izquierdo */
+  /*padding-right: 25px;     /* deja espacio suficiente para la sidebar */
+}
+
+.contenido.arriba-movil {
+    text-align: center;
+    text-shadow: 6px 6px 7px rgba(255,255,255,1);
+    margin-top: -80px;
+  }
+
+h1{font-size:2rem;color:var(--brand);}
+h2{font-size:2.5rem;color:var(--ink);}
+p{font-size:1.5rem; margin-top:10px;}
+
+.texto-grande {
+  font-size: 2.5rem;
+}
+.texto-chico {
+  font-size: 2rem;
+}
+
+/* BOTÓN GOOGLE MAPS */
+.btn-maps{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  background:var(--brand);
+  color:#fff;
+  border-radius:20px;
+  text-decoration:none;
+  text-shadow: none;
+  transition:all 0.3s;
+  font-size: 1.5rem;
+}
+.btn-maps:hover{
+  filter:brightness(0.9);
+  transform:scale(1.2);
+}
+
+/* MESA DE REGALOS */
+.gift-grid{
+  display:flex;
+  gap:40px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.gift-grid img{
+  width:180px;
+  max-width:220px;
+  border-radius: 20px;
+  cursor:pointer;
+  transition:transform 0.3s;
+}
+.gift-grid img:hover{
+  transform:scale(1.2);
+}
+
+/* BOTON WHATSAPP */
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #25D366;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  width: 200px;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  transition:all 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe57;
+  transform:scale(1.2);
+}
+
+/* NAVBAR DERECHA */
+.sidebar{
+  position:fixed;
+  right:20px; top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  z-index:3;
+}
+
+.sidebar ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.sidebar ul li{
+  cursor:pointer;
+  transition: transform 0.3s, color 0.3s, opacity 0.3s, text-shadow 0.3s;
+}
+
+.sidebar ul li i{
+  font-size: 1.8rem;
+  color: var(--ink);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.sidebar ul li.active i{
+  color: var(--gold);
+  transform: scale(1.3);
+  opacity: 1; /* icono activo totalmente visible */
+  text-shadow: 0 0 12px rgba(212,175,55,0.9),
+               0 0 20px rgba(212,175,55,0.6);
+}
+
+
+/* BURBUJAS DE FONDO */
+.bubbles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index:5;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.bubbles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fairy-dust 1s ease-out forwards;
+}
+
+.bubbles span.dust {
+  background: radial-gradient(circle, #ffffff 0%, #fff2b0 40%, transparent 70%);
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 35px rgba(255, 240, 180, 0.9),
+    0 0 60px rgba(255, 220, 120, 0.6);
+}
+
+.bubbles span.shine {
+  background: radial-gradient(circle, #ffffff 0%, #ffffff 20%, transparent 70%);
+  box-shadow:
+    0 0 25px rgba(255,255,255,1),
+    0 0 50px rgba(255,255,255,0.9),
+    0 0 80px rgba(255,255,255,0.6);
+}
+
+.bubbles span.confetti {
+  background: linear-gradient(45deg, #ffffff, #ffe4f0, #fff2a8);
+  box-shadow:
+    0 0 15px rgba(255,255,255,0.9),
+    0 0 25px rgba(255,220,180,0.7);
+}
+
+@keyframes fairy-dust {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: 
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* DECORACIONES */
+.decoracion {
+  position: fixed;
+  z-index: 2; /* sobre el fondo, debajo del contenido interactivo */
+  pointer-events: none; /* que no bloquee clics */
+}
+
+/* Banderines en esquina superior derecha */
+.decoracion.banderines {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 45vw;          /* 🔥 escala con pantalla */
+  max-width: 260px;     /* límite en celulares */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Conejo en esquina inferior izquierda */
+.decoracion.conejito {
+  bottom: 0;
+  margin-left: 5px;
+  width: 250px;
+  max-width: 100%;
+}
+
+/* Ajustes en versión móvil */
+@media(max-width:768px){
+  .decoracion.banderines {
+    width: 55vw;
+    max-width: 220px;
+    top: 10px;
+    right: 0;
+  }
+  .decoracion.elefante {
+    width: 200px; /* más pequeños */
+  }
+}
+
+@media(max-width:768px){
+  .section.active .content .gift-grid .gift-grid img .gift-grid img:hover{
+    transform: translateY(-120px); /* mueve el contenido 50px hacia arriba */
+  }
+}
+
+@media (max-width: 768px) {
+  .contenido.arriba-movil {
+    text-align: center;
+    text-shadow: 6px 6px 7px rgba(255,255,255,1);
+    margin-top: -150px;
+  }
+}
+
+
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+}
+
+@media(max-width:768px){
+  .sidebar{
+    top:80%;                 /* centra verticalmente en la pantalla */
+    right:5px;              /* más pegada al borde derecho en móvil */
+    transform: translateY(-50%);
+  }
+
+  .sidebar ul li i{
+    font-size: 1.4rem;       /* iconos más pequeños en móvil */
+  }
+}
