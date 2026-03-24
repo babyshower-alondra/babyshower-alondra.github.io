@@ -34,12 +34,10 @@ navItems.forEach((item, i) => {
 // scroll fluido circular
 window.addEventListener("wheel", (e)=>{
   if(e.deltaY > 0){ 
-    // scroll hacia abajo
-    const next = (current + 1) % sections.length; // vuelve al inicio si es el último
+    const next = (current + 1) % sections.length;
     showSection(next);
   } else if(e.deltaY < 0){ 
-    // scroll hacia arriba
-    const prev = (current - 1 + sections.length) % sections.length; // vuelve al final si es el primero
+    const prev = (current - 1 + sections.length) % sections.length;
     showSection(prev);
   }
 });
@@ -56,12 +54,10 @@ document.addEventListener('touchend', e => {
   touchendY = e.changedTouches[0].screenY;
 
   if(touchendY < touchstartY - 50){ 
-    // swipe arriba → siguiente
     const next = (current + 1) % sections.length;
     showSection(next);
   }
   if(touchendY > touchstartY + 50){ 
-    // swipe abajo → anterior
     const prev = (current - 1 + sections.length) % sections.length;
     showSection(prev);
   }
@@ -93,18 +89,13 @@ function generateBubbles(originX = window.innerWidth / 2, originY = window.inner
   const container = document.querySelector(".bubbles");
   container.innerHTML = "";
 
-  const total = 140; // 🔥 más partículas para explosión intensa
+  const total = 140;
 
   for(let i=0; i<total; i++){
     const span = document.createElement("span");
 
-    // posición inicial (icono)
-    span.style.left = originX + "px";
-    span.style.top = originY + "px";
-
-    // dirección aleatoria
     const angle = Math.random() * 2 * Math.PI;
-    const distance = 80 + Math.random() * 200; // 🔥 más lejos
+    const distance = 80 + Math.random() * 200;
 
     const x = Math.cos(angle) * distance + "px";
     const y = Math.sin(angle) * distance + "px";
@@ -112,7 +103,6 @@ function generateBubbles(originX = window.innerWidth / 2, originY = window.inner
     span.style.setProperty('--x', x);
     span.style.setProperty('--y', y);
 
-    // tipo de partícula
     const type = Math.random();
     if(type < 0.4){
       span.classList.add("dust");
@@ -122,12 +112,10 @@ function generateBubbles(originX = window.innerWidth / 2, originY = window.inner
       span.classList.add("confetti");
     }
 
-    // tamaño variado para más profundidad
     const size = 6 + Math.random() * 18;
     span.style.width = size + "px";
     span.style.height = size + "px";
 
-    // duración de la animación
     span.style.animationDuration = (0.8 + Math.random() * 1) + "s";
 
     container.appendChild(span);
@@ -140,19 +128,15 @@ generateBubbles();
 // mostrar primera sección
 showSection(0);
 
-// --- Activar música al primer tap/click ---
+// --- Activar música al primer tap/click en todo el body ---
 function iniciarMusica() {
-    const music = document.getElementById("bg-music");
-    if(music) {
-      music.volume = 0.2;
-        music.play().catch(err => console.log("Audio bloqueado:", err));
-    }
-    // Quitamos los listeners para que no se ejecute otra vez
-    document.removeEventListener("click", iniciarMusica);
-    document.removeEventListener("touchstart", iniciarMusica);
+  const music = document.getElementById("bg-music");
+  if(music) {
+    music.volume = 0.2;
+    music.play().catch(err => console.log("Audio bloqueado:", err));
+  }
 }
 
-// Escuchar primer click o tap
-document.addEventListener("click", iniciarMusica);
-document.addEventListener("touchstart", iniciarMusica);
-
+// Escuchar primer toque o clic en body (más confiable en móviles)
+document.body.addEventListener("touchstart", iniciarMusica, { once: true });
+document.body.addEventListener("click", iniciarMusica, { once: true });
